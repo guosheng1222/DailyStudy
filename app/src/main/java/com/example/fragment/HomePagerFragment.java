@@ -1,10 +1,10 @@
 package com.example.fragment;
 
-import android.util.Log;
 import android.view.View;
 
 import com.example.base.BaseFragment;
 import com.example.dailystudy.R;
+import com.example.manager.ChangeHideManager;
 import com.example.view.JudgeShowView;
 
 
@@ -20,26 +20,10 @@ public class HomePagerFragment extends BaseFragment {
 
     @Override
     protected View setDifferentView(int status) {
-        view = View.inflate(getActivity(), R.layout.fragment_category,null);
-        View category_loading = view.findViewById(R.id.category_loading);
-        View category_error = view.findViewById(R.id.category_error);
-        View category_content = view.findViewById(R.id.category_content);
+        view = View.inflate(getActivity(), R.layout.fragment_homepage, null);
 
-        Log.i("TAG", "home_status--" + status);
+        ChangeHideManager.changeVisible(view, status);
 
-        if (status == JudgeShowView.STATUS_LOADING) {
-            category_error.setVisibility(View.GONE);
-            category_content.setVisibility(View.GONE);
-            category_loading.setVisibility(View.VISIBLE);
-        } else if (status == JudgeShowView.STATUS_NO_NETWORK) {
-            category_error.setVisibility(View.VISIBLE);
-            category_content.setVisibility(View.GONE);
-            category_loading.setVisibility(View.GONE);
-        } else if (status == JudgeShowView.STATUS_SUCCESS) {
-            category_error.setVisibility(View.GONE);
-            category_content.setVisibility(View.VISIBLE);
-            category_loading.setVisibility(View.GONE);
-        }
         return view;
     }
 
@@ -54,7 +38,7 @@ public class HomePagerFragment extends BaseFragment {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                setViewStatus(JudgeShowView.StatusType.STATUS_LOADING);
+                setViewStatus(JudgeShowView.StatusType.STATUS_SUCCESS);
             }
         }.start();
     }

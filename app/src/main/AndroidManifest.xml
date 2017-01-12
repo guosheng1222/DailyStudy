@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.dailystudy">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:name="com.example.app.MyApplication"
         android:allowBackup="true"
@@ -17,7 +19,8 @@
             android:name="design_height"
             android:value="1280" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:theme="@style/Base.Theme.AppCompat">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,8 +37,8 @@
         <activity android:name=".AddDiscountActivity" />
         <activity android:name=".HistoryDiscountActivity" />
         <activity android:name=".MyMessageActivity" />
-        <activity android:name=".PersonalInformationActivity"/>
-        <activity android:name=".UpdateNickNameActivity"/>
+        <activity android:name=".PersonalInformationActivity" />
+        <activity android:name=".UpdateNickNameActivity" />
     </application>
 
 

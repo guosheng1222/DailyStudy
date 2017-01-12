@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import com.example.view.JudgeShowView;
 
@@ -17,11 +18,14 @@ import com.example.view.JudgeShowView;
 public abstract class BaseFragment extends Fragment {
 
     private JudgeShowView judgeShowView;
-    private int status;
+    private ViewGroup rootView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+
+        rootView = new FrameLayout(getActivity());
 
         judgeShowView = new JudgeShowView(getContext()) {
             @Override
@@ -30,20 +34,20 @@ public abstract class BaseFragment extends Fragment {
             }
 
             @Override
-            public View setDifferentView(int status) {
-                BaseFragment.this.status = status;
-                return BaseFragment.this.setDifferentView(status);
+            public void setDifferentView(int status) {
+
+                View view = BaseFragment.this.setDifferentView(status);
+                rootView.addView(view);
             }
 
 
         };
 
 
-        return BaseFragment.this.setDifferentView(status);
+        return rootView;
     }
 
     protected abstract View setDifferentView(int status);
-
 
 
     public abstract void onLoad();

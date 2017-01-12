@@ -10,18 +10,18 @@
         android:background="#ff00ff" />
 
     <include
-        android:id="@+id/category_loading"
+        android:id="@+id/loading"
         layout="@layout/loading_layout"
         android:visibility="gone" />
 
     <include
-        android:id="@+id/category_error"
+        android:id="@+id/no_network"
         layout="@layout/no_network_layout"
         android:visibility="gone" />
 
     <TextView
 
-        android:id="@+id/category_content"
+        android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"

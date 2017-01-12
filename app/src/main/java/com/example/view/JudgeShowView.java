@@ -33,7 +33,7 @@ public abstract class JudgeShowView extends FrameLayout implements View.OnClickL
 
     protected abstract void onLoad();
 
-    public abstract View setDifferentView(int status);
+    public abstract void setDifferentView(int status);
 
 
 
