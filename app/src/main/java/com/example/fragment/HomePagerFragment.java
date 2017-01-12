@@ -1,5 +1,6 @@
 package com.example.fragment;
 
+import android.util.Log;
 import android.view.View;
 
 import com.example.base.BaseFragment;

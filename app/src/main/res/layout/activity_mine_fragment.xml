@@ -163,7 +163,8 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="22px"
                 android:text="我的课程"
-                android:textSize="40px" />
+                android:textSize="38px"
+                android:textColor="@color/black" />
 
             <include layout="@layout/mine_right_icon" />
 
@@ -176,7 +177,7 @@
         <com.zhy.autolayout.AutoLinearLayout
             android:id="@+id/collection"
             android:layout_width="match_parent"
-            android:layout_height="103px"
+            android:layout_height="88px"
             android:orientation="horizontal">
 
             <ImageView
@@ -194,7 +195,8 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="22px"
                 android:text="收藏"
-                android:textSize="40px" />
+                android:textSize="38px"
+                android:textColor="@color/black" />
 
             <include layout="@layout/mine_right_icon" />
 
@@ -207,7 +209,7 @@
         <com.zhy.autolayout.AutoLinearLayout
             android:id="@+id/discount"
             android:layout_width="match_parent"
-            android:layout_height="103px"
+            android:layout_height="88px"
             android:orientation="horizontal">
 
             <ImageView
@@ -225,7 +227,8 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="22px"
                 android:text="优惠券"
-                android:textSize="40px" />
+                android:textSize="38px"
+                android:textColor="@color/black" />
 
             <include layout="@layout/mine_right_icon" />
 
@@ -238,7 +241,7 @@
         <com.zhy.autolayout.AutoLinearLayout
             android:id="@+id/offline_load"
             android:layout_width="match_parent"
-            android:layout_height="103px"
+            android:layout_height="88px"
             android:orientation="horizontal">
 
             <ImageView
@@ -256,7 +259,8 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="22px"
                 android:text="离线下载"
-                android:textSize="40px" />
+                android:textSize="38px"
+                android:textColor="@color/black"/>
 
             <include layout="@layout/mine_right_icon" />
 
@@ -269,7 +273,7 @@
         <com.zhy.autolayout.AutoLinearLayout
             android:id="@+id/mymessage"
             android:layout_width="match_parent"
-            android:layout_height="103px"
+            android:layout_height="88px"
             android:orientation="horizontal">
 
             <ImageView
@@ -287,7 +291,8 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="22px"
                 android:text="我的消息"
-                android:textSize="40px" />
+                android:textSize="38px"
+                android:textColor="@color/black" />
 
             <include layout="@layout/mine_right_icon" />
 
@@ -301,7 +306,7 @@
         <com.zhy.autolayout.AutoLinearLayout
             android:id="@+id/feedback"
             android:layout_width="match_parent"
-            android:layout_height="103px"
+            android:layout_height="88px"
             android:orientation="horizontal">
 
             <ImageView
@@ -319,7 +324,8 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="22px"
                 android:text="意见反馈"
-                android:textSize="40px" />
+                android:textSize="38px"
+                android:textColor="@color/black" />
 
             <include layout="@layout/mine_right_icon" />
 
@@ -331,7 +337,7 @@
         <com.zhy.autolayout.AutoLinearLayout
             android:id="@+id/setting"
             android:layout_width="match_parent"
-            android:layout_height="103px"
+            android:layout_height="88px"
             android:orientation="horizontal">
 
             <ImageView
@@ -350,7 +356,9 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="22px"
                 android:text="设置"
-                android:textSize="40px" />
+                android:textSize="38px"
+                android:textColor="@color/black"
+                />
 
             <include layout="@layout/mine_right_icon" />
 

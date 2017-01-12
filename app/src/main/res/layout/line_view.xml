@@ -3,5 +3,5 @@
     android:layout_width="match_parent"
     android:layout_height="1px"
     android:background="#c9c9c9"
-    android:layout_marginLeft="40px"
+    android:layout_marginLeft="15px"
     />
