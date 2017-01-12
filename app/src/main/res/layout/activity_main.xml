@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+
+    <com.example.view.LazyViewPager
+        android:id="@+id/main_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+
+    <RadioGroup
+        android:id="@+id/main_radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/rg_background"
+        android:orientation="horizontal"
+        android:paddingBottom="15px"
+        android:paddingTop="15px">
+
+        <RadioButton
+            android:id="@+id/rb_homepager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/selector_homepage"
+            android:gravity="center_horizontal"
+            android:text="首页"
+            android:textColor="@color/rb_text_check"
+            android:textSize="28px" />
+
+        <RadioButton
+            android:id="@+id/rb_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/selector_catefory"
+            android:gravity="center_horizontal"
+            android:text="课程分类"
+            android:textColor="@color/gray"
+            android:textSize="28px" />
+
+        <RadioButton
+            android:id="@+id/rb_circle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/selector_circle"
+            android:gravity="center_horizontal"
+            android:text="圈子"
+            android:textColor="@color/gray"
+            android:textSize="28px" />
+
+        <RadioButton
+            android:id="@+id/rb_mine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/selector_mine"
+            android:gravity="center_horizontal"
+            android:text="我的"
+            android:textColor="@color/gray"
+            android:textSize="28px" />
+    </RadioGroup>
+
+
+</com.zhy.autolayout.AutoLinearLayout>

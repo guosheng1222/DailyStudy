@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_update_nick_name"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F1F1F1"
+    >
+
+    <include layout="@layout/activity_title"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:background="@drawable/edit_name_1"
+        android:layout_marginRight="20px"
+        android:layout_marginLeft="20px"
+        android:layout_marginTop="40px"
+        android:hint="请编辑你的昵称"
+        android:drawableRight="@drawable/cancel"
+        android:paddingRight="25px"
+        android:paddingLeft="20px"
+
+        />
+
+
+</com.zhy.autolayout.AutoLinearLayout>

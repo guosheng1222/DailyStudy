@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.dailystudy">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <application
+        android:name="com.example.app.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/TransParentTheme">
+        <meta-data
+            android:name="design_width"
+            android:value="768" />
+        <meta-data
+            android:name="design_height"
+            android:value="1280" />
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SettingActivity" />
+        <activity android:name=".FeedBackActivity" />
+        <activity android:name=".LandActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".MyProjectActivity" />
+        <activity android:name=".CollectionActivity" />
+        <activity android:name=".DisCountActivity" />
+        <activity android:name=".AddDiscountActivity" />
+        <activity android:name=".HistoryDiscountActivity" />
+        <activity android:name=".MyMessageActivity" />
+        <activity android:name=".PersonalInformationActivity"/>
+        <activity android:name=".UpdateNickNameActivity"/>
+    </application>
+
+
+</manifest>

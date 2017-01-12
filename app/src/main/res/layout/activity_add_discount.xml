@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_add_discount"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <include layout="@layout/activity_title"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:hint="请输入优惠码"
+        android:layout_marginTop="50px"
+        android:layout_marginLeft="28px"
+        android:layout_marginRight="28px"
+        android:background="#fff"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25px"
+        android:layout_marginRight="25px"
+        android:layout_marginTop="30px"
+        android:text="确认添加"
+        />
+
+</com.zhy.autolayout.AutoLinearLayout>
