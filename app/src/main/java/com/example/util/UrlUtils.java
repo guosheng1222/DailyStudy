@@ -1,7 +1,8 @@
 package com.example.util;
 
 public interface UrlUtils {
-
+    //首页接口
+    String home =  "http://www.meirixue.com/api.php?a=indexv9&c=index";
     // 登录接口
     String signIn = "http://www.meirixue.com/api.php?c=login&a=index";
     // 注册接口获得短信的验证码

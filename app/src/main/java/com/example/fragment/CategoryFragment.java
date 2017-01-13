@@ -19,6 +19,15 @@ public class CategoryFragment extends BaseFragment {
 
 
     @Override
+    protected View setSuccessView(int statusCurrent) {
+        view = CommonUtils.inflate(R.layout.fragment_category);
+
+        ChangeHideManager.changeVisible(view, statusCurrent);
+
+        return view;
+    }
+
+    @Override
     protected View setDifferentView(int status) {
         view = CommonUtils.inflate(R.layout.fragment_category);
 
@@ -29,18 +38,7 @@ public class CategoryFragment extends BaseFragment {
 
     @Override
     public void onLoad() {
-        new Thread() {
-            @Override
-            public void run() {
-                super.run();
-                try {
-                    Thread.sleep(200);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                setViewStatus(JudgeShowView.StatusType.STATUS_NO_NETWORK);
-            }
-        }.start();
+        judgeShowView.setViewStatus(JudgeShowView.StatusType.STATUS_SUCCESS);
     }
 
 

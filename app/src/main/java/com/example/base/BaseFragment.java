@@ -17,46 +17,59 @@ import com.example.view.JudgeShowView;
 
 public abstract class BaseFragment extends Fragment {
 
-    private JudgeShowView judgeShowView;
+    public JudgeShowView judgeShowView;
     private ViewGroup rootView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-
-        rootView = new FrameLayout(getActivity());
-
-        judgeShowView = new JudgeShowView(getContext()) {
+        if (rootView == null) {
+            rootView = new FrameLayout(getActivity());
+        }
+        judgeShowView = new JudgeShowView(getActivity()) {
             @Override
             protected void onLoad() {
-                BaseFragment.this.onLoad();
+                new Thread(){
+                    @Override
+                    public void run() {
+                        super.run();
+                        try {
+                            sleep(200);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        BaseFragment.this.onLoad();
+                    }
+                }.start();
+
             }
 
             @Override
             public void setDifferentView(int status) {
-
+                rootView.removeAllViews();
                 View view = BaseFragment.this.setDifferentView(status);
                 rootView.addView(view);
             }
 
+            @Override
+            public void setSuccessView(int statusCurrent) {
+                rootView.removeAllViews();
+                View view = BaseFragment.this.setSuccessView(statusCurrent);
+                rootView.addView(view);
 
+            }
         };
-
-
         return rootView;
     }
+
+    protected abstract View setSuccessView(int statusCurrent);
 
     protected abstract View setDifferentView(int status);
 
 
     public abstract void onLoad();
 
-    public void setViewStatus(JudgeShowView.StatusType statusType) {
-        if (judgeShowView != null) {
-            judgeShowView.setViewStatus(statusType);
-        }
-    }
 
 
 }

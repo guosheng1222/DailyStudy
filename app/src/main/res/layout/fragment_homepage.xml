@@ -4,38 +4,30 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include
-        android:id="@+id/loading"
-        layout="@layout/loading_layout"
-        android:visibility="gone" />
-
-    <include
-        android:id="@+id/no_network"
-        layout="@layout/no_network_layout"
-        android:visibility="gone" />
 
     <com.zhy.autolayout.AutoRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/red"
-        >
+        android:background="@color/red">
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/meirixue"
             android:layout_centerInParent="true"
             android:layout_margin="20px"
-            />
+            android:src="@drawable/meirixue" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/abc_ic_search_api_mtrl_alpha"
-            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:layout_margin="20px" />
+            android:layout_centerVertical="true"
+            android:layout_margin="20px"
+            android:src="@drawable/abc_ic_search_api_mtrl_alpha" />
     </com.zhy.autolayout.AutoRelativeLayout>
 
     <com.liaoinstan.springview.widget.SpringView
+        android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -46,27 +38,34 @@
             <com.zhy.autolayout.AutoLinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:id="@+id/content"
-                >
+                android:orientation="vertical">
                 <!--轮播图-->
                 <android.support.v4.view.ViewPager
+                    android:id="@+id/home_vp"
                     android:layout_width="match_parent"
                     android:layout_height="300px"
-                    android:id="@+id/home_vp"
-                    android:background="#000"
-                    />
+                    android:background="#000" />
                 <!--分类-->
                 <GridView
+                    android:id="@+id/home_gv"
                     android:layout_width="match_parent"
                     android:layout_height="200px"
-                    android:numColumns="4"
-                    android:id="@+id/home_gv"
-                    />
+                    android:numColumns="4" />
 
             </com.zhy.autolayout.AutoLinearLayout>
 
         </ScrollView>
 
     </com.liaoinstan.springview.widget.SpringView>
+
+
+    <include
+        android:id="@+id/loading"
+        layout="@layout/loading_layout"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/no_network"
+        layout="@layout/no_network_layout"
+        android:visibility="gone" />
 </com.zhy.autolayout.AutoLinearLayout>

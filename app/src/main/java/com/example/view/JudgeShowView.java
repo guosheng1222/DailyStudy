@@ -67,9 +67,11 @@ public abstract class JudgeShowView extends FrameLayout implements View.OnClickL
         }
 
         if (statusCurrent == STATUS_SUCCESS) {
-            setDifferentView(STATUS_SUCCESS);
+            setSuccessView(statusCurrent);
         }
     }
+
+    public abstract void setSuccessView(int statusCurrent);
 
 
     @Override

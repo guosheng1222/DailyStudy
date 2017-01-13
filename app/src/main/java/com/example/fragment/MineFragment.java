@@ -4,6 +4,7 @@ import android.view.View;
 
 import com.example.base.BaseFragment;
 import com.example.dailystudy.R;
+import com.example.manager.ChangeHideManager;
 import com.example.util.CommonUtils;
 import com.example.view.JudgeShowView;
 
@@ -14,48 +15,25 @@ import com.example.view.JudgeShowView;
 
 public class MineFragment extends BaseFragment {
 
-
-    //private int status;
     private View view;
 
-    /*@Override
-    protected void getStatus(int statusNoNetwork) {
-        this.status = statusNoNetwork;
-    }*//*
-
     @Override
-    protected View setNoSuccessView(int status) {
-        return null;
-    }
-
-    @Override
-    protected View setSuccessView() {
-        view = CommonUtils.inflate(R.layout.fragment_mine);
-
+    protected View setSuccessView(int statusCurrent) {
+        view = CommonUtils.inflate(R.layout.activity_mine_fragment);
+       // ChangeHideManager.changeVisible(view, statusCurrent);
         return view;
-    }*/
+    }
 
     @Override
     protected View setDifferentView(int status) {
         view = CommonUtils.inflate(R.layout.activity_mine_fragment);
-
+      //  ChangeHideManager.changeVisible(view, status);
         return view;
     }
 
     @Override
     public void onLoad() {
-        new Thread() {
-            @Override
-            public void run() {
-                super.run();
-                try {
-                    sleep(20);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                setViewStatus(JudgeShowView.StatusType.STATUS_SUCCESS);
-            }
-        }.start();
+        judgeShowView.setViewStatus(JudgeShowView.StatusType.STATUS_SUCCESS);
     }
 
 }
