@@ -85,7 +85,6 @@ public class CommonUtils {
 //    public static ColorStateList getColorStateList(int mTabTextColorResId) {
 //        return getResources().getColorStateList(mTabTextColorResId);
 //    }
-
     public static View inflate(int layoutId) {
         return View.inflate(getContext(),layoutId, null);
     }

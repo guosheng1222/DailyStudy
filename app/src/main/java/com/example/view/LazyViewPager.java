@@ -73,6 +73,7 @@ public class LazyViewPager extends ViewGroup {
     
     private static final int MAX_SETTLE_DURATION = 600;
 
+
     static class ItemInfo {
         Object object;
         int position;

@@ -1,6 +1,12 @@
 package com.example.util;
 
 public interface UrlUtils {
+   // 圈子 热门 主体
+   String circle_hot_content="http://www.meirixue.com/api.php?c=circle&a=getCirclePostListByTid";
+    //圈子-热门接口 get请求
+   String circle_topic="http://www.meirixue.com/api.php?c=circle&a=getCircleNamesIndexV2";
+    //圈子-热门标题接口
+ String circle_hottitle="http://www.meirixue.com/api.php?c=circle&a=getRecommendTag";
     //首页接口
     String home =  "http://www.meirixue.com/api.php?a=indexv9&c=index";
     // 登录接口

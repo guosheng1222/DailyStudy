@@ -3,18 +3,18 @@ package com.example.dailystudy;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.manager.FragmentFactory;
 import com.example.util.CommonUtils;
-import com.example.view.LazyViewPager;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    private LazyViewPager main_viewPager;
+    private ViewPager main_viewPager;
 
     String[] fragmentName = new String[]{"HomePagerFragment", "CategoryFragment", "CircleFragment", "MineFragment"};
     private RadioGroup main_radioGroup;
@@ -61,13 +61,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-        main_viewPager.setOnPageChangeListener(new LazyViewPager.OnPageChangeListener() {
+        main_viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
             }
-
             @Override
             public void onPageSelected(int position) {
                 for (int i = 0; i < main_radioGroup.getChildCount(); i++) {
@@ -78,14 +75,11 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         childAt.setTextColor(grayColor);
                         childAt.setChecked(false);
-
                     }
                 }
             }
-
             @Override
             public void onPageScrollStateChanged(int state) {
-
             }
         });
 
@@ -93,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        main_viewPager = (LazyViewPager) findViewById(R.id.main_viewPager);
+        main_viewPager = (ViewPager) findViewById(R.id.main_viewPager);
         main_radioGroup = (RadioGroup) findViewById(R.id.main_radioGroup);
     }
 }

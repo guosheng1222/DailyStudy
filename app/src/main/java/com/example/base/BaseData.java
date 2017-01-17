@@ -16,6 +16,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.HashMap;
+import java.util.Set;
 
 import static com.example.util.NetUtils.NET_WORK_TYPE_INVALID;
 
@@ -70,13 +71,20 @@ public abstract class BaseData {
      * post请求
      */
     public void postData(Context context, String path, HashMap<String,String> argsMap, int index, int validTime) {
+        //拼接map
+        Set<String> keySet = argsMap.keySet();
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String key : keySet) {
+            stringBuilder.append(key).append(argsMap.get(key));
+        }
+
         this.mContext = context;
         //如果有效时间为0
         if (validTime == 0) {
             //判断是否有网   有就请求数据
             if (getIsNoNet()) {
                 //从网络请求数据
-                postDataFromNet(path, argsMap, index, validTime);
+                postDataFromNet(path, argsMap, stringBuilder.toString(),index, validTime);
             } else {
                 setResultError();
             }
@@ -87,7 +95,7 @@ public abstract class BaseData {
             if (TextUtils.isEmpty(data)) {
                 if (getIsNoNet()) {
                     //从网络请求数据
-                    postDataFromNet(path,argsMap, index, validTime);
+                    postDataFromNet(path,argsMap, stringBuilder.toString(), index, validTime);
                 } else {
                     setResultError();
                 }
@@ -111,7 +119,7 @@ public abstract class BaseData {
 
     public abstract void setResultData(String data);
 
-    protected abstract void setResultError();
+    public abstract void setResultError();
 
     /**
      * 从本地请求数据
@@ -144,26 +152,33 @@ public abstract class BaseData {
      */
     private void getDataFromNet(final String path, final String args, final int index, final int validTime) {
         new HttpUtil.Builder(path)
-                .Success(str -> {
-                    writeDataToLocal(path, index, validTime, str);
-                })
-                .Error(v -> {
-                    setResultError();
-                }).get();
-    }
-
-    /**
-     * 从网络请求数据 Post
-     */
-    private void postDataFromNet(final String path, final HashMap<String,String> argsMap, final int index, final int validTime) {
-        new HttpUtil.Builder(path)
-                .Params(argsMap)
-                .Params("key", "value")
                 .Success(new Success() {
                     @Override
                     public void Success(String model) {
                         setResultData(model);
                         writeDataToLocal(path,index,validTime,model);
+                    }
+                })
+                .Error(new Error() {
+                    @Override
+                    public void Error(Object... objects) {
+                        setResultError();
+                    }
+                })
+                .get();
+    }
+
+    /**
+     * 从网络请求数据 Post
+     */
+    private void postDataFromNet(final String path, final HashMap<String,String> argsMap, final String args,final int index, final int validTime) {
+        new HttpUtil.Builder(path)
+                .Params(argsMap)
+                .Success(new Success() {
+                    @Override
+                    public void Success(String model) {
+                        setResultData(model);
+                        writeDataToLocal(path+args,index,validTime,model);
                     }
                 })
                 .Error(new Error() {

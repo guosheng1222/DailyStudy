@@ -4,7 +4,6 @@ import android.view.View;
 
 import com.example.base.BaseFragment;
 import com.example.dailystudy.R;
-import com.example.manager.ChangeHideManager;
 import com.example.util.CommonUtils;
 import com.example.view.JudgeShowView;
 

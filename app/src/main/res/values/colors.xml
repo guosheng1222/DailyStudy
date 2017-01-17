@@ -21,6 +21,6 @@
     <color name="text_normal_color">#666666</color>
     <color name="rb_text_check">#ff5b5b</color>
     <color name="rg_background">#f5f5f5</color>
-    "
+    <color name="select_text_color">#FFDA44</color>
     <color name="radiobutton_bg">#F1F1F1</color>
 </resources>

@@ -1,9 +1,7 @@
 package com.example.fragment;
 
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 
 import com.example.adapter.MyPagerAdapter;
 import com.example.base.BaseData;
@@ -70,7 +68,6 @@ public class HomePagerFragment extends BaseFragment {
     @Override
     public void onLoad() {
         judgeShowView.setViewStatus(JudgeShowView.StatusType.STATUS_LOADING);
-
         new BaseData() {
             @Override
             public void setResultData(String data) {
@@ -81,7 +78,7 @@ public class HomePagerFragment extends BaseFragment {
             }
 
             @Override
-            protected void setResultError() {
+            public void setResultError() {
                 judgeShowView.setViewStatus(JudgeShowView.StatusType.STATUS_NO_NETWORK);
             }
         }.getData(getActivity(), UrlUtils.home, null, 0, BaseData.NORMALTIME);

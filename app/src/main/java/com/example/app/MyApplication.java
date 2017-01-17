@@ -35,8 +35,6 @@ public class MyApplication extends Application {
         ParamsInterceptor mParamsInterceptor = new ParamsInterceptor() {
             @Override
             public Map checkParams(Map params) {
-                //追加统一参数
-                params.put("app_type", "android_price");
                 return params;
             }
         };
