@@ -1,16 +1,19 @@
 package com.example.fragment;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.base.BaseData;
 import com.example.base.BaseFragment;
 import com.example.dailystudy.R;
+import com.example.dailystudy.SearchFriendActivity;
 import com.example.manager.ChangeHideManager;
 import com.example.manager.FragmentFactory;
 import com.example.util.UrlUtils;
@@ -21,11 +24,12 @@ import com.example.view.JudgeShowView;
  * Created by lenovo on 2017/1/11.
  */
 
-public class CircleFragment extends BaseFragment {
+public class CircleFragment extends BaseFragment implements View.OnClickListener {
     String[] title = new String[]{"话题", "热门", "关注"};
     private View view;
     private TabLayout circle_tablayout;
     private ViewPager circle_vp;
+    private ImageView toSearch;
 
     @Override
     protected View setSuccessView(int statusCurrent) {
@@ -33,9 +37,10 @@ public class CircleFragment extends BaseFragment {
         ChangeHideManager.changeVisible(view, statusCurrent);
         circle_tablayout = (TabLayout) view.findViewById(R.id.circle_tablayout);
         circle_vp = (ViewPager) view.findViewById(R.id.circle_vp);
+        toSearch = (ImageView) view.findViewById(R.id.toSearch);
+        toSearch.setOnClickListener(this);
         return view;
     }
-
     protected View setDifferentView(int status) {
         view = View.inflate(getActivity(),R.layout.fragment_circle,null);
         ChangeHideManager.changeVisible(view, status);
@@ -106,5 +111,14 @@ public class CircleFragment extends BaseFragment {
             public void onPageScrollStateChanged(int state) {
             }
         });
+    }
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.toSearch:
+                Intent in=new Intent(getActivity(), SearchFriendActivity.class);
+                startActivity(in);
+                break;
+        }
     }
 }

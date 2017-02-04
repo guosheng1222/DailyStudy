@@ -1,5 +1,6 @@
 package com.example.fragment;
 
+import android.os.Handler;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,7 +17,9 @@ import com.example.util.GlideImageLoader;
 import com.example.util.GlideUtils;
 import com.example.util.UrlUtils;
 import com.example.view.JudgeShowView;
+import com.example.view.MyHeader;
 import com.google.gson.Gson;
+import com.liaoinstan.springview.widget.SpringView;
 import com.youth.banner.Banner;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
@@ -36,6 +39,7 @@ public class CircleTopicFragment extends BaseFragment {
     ArrayList<BeanTopic.DataBean.CircleBean> circleList=new ArrayList<>();
     private RecyclerView hotcircle;
     private RecyclerView mycircle;
+    private SpringView mySpringview;
 
     @Override
     protected View setSuccessView(int statusCurrent) {
@@ -44,6 +48,23 @@ public class CircleTopicFragment extends BaseFragment {
         banner = (Banner) view.findViewById(R.id.circle_topic_banner);
         hotcircle = (RecyclerView) view.findViewById(R.id.topic_hotcircle_recycler);
         mycircle = (RecyclerView) view.findViewById(R.id.topic_mycircle_recycler);
+        mySpringview = (SpringView) view.findViewById(R.id.content);
+        mySpringview.setHeader(new MyHeader());
+        mySpringview.setType(SpringView.Type.FOLLOW);
+        mySpringview.setListener(new SpringView.OnFreshListener() {
+            @Override
+            public void onRefresh() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mySpringview.onFinishFreshAndLoad();
+                    }
+                }, 1500);
+            }
+            @Override
+            public void onLoadmore() {
+            }
+        });
         return view;
     }
     private void initBanner() {
@@ -65,7 +86,7 @@ public class CircleTopicFragment extends BaseFragment {
                 holder.setText(R.id.topic_Title,circleList.get(position).getN_title());
                 holder.setText(R.id.topic_Brief,circleList.get(position).getN_brief());
                 holder.setText(R.id.topic_userCount,circleList.get(position).getN_user_count()+"关注");
-                holder.setText(R.id.topic_postCount,circleList.get(position).getN_user_count()+"帖子");
+                holder.setText(R.id.topic_postCount,circleList.get(position).getN_post_count()+"帖子");
                 ImageView image = holder.getView(R.id.topic_iv);
                 GlideUtils.loadImageView(getActivity(),circleList.get(position).getN_small_img(),image);
             }
