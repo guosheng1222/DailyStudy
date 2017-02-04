@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+z
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70px"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_list_first_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10px"
+            android:src="@drawable/one" />
+
+        <TextView
+            android:id="@+id/tv_list_first_item"
+            android:layout_width="wrap_content"
+            android:layout_height="70px"
+            android:layout_marginLeft="15px"
+            android:gravity="center_vertical"
+            android:text="多彩生活"
+            android:textColor="@color/text_normal_color" />
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

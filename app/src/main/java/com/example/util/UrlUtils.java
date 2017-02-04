@@ -7,6 +7,9 @@ public interface UrlUtils {
    String circle_topic="http://www.meirixue.com/api.php?c=circle&a=getCircleNamesIndexV2";
     //圈子-热门标题接口
  String circle_hottitle="http://www.meirixue.com/api.php?c=circle&a=getRecommendTag";
+    //三级列表
+    String three_path = "http://www.meirixue.com/api.php?c=category&a=getTree";
+
     //首页接口
     String home =  "http://www.meirixue.com/api.php?a=indexv9&c=index";
     // 登录接口
@@ -132,6 +135,12 @@ public interface UrlUtils {
 
     // 分享相关
     public static final String SHARE_ADDRESS = "http://www.meirixue.com/api.php?c=course&a=getwapinfo&courseid=";
+
+
+    //课程列表数据
+    public static final String COURSE_HOME = "http://www.meirixue.com/api.php?";
+    public static final String COURSE_ARGS = "c=list&a=index&order=&p=1&isfree=&by=desc&cid=";
+
 
 
 }

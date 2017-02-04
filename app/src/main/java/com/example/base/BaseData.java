@@ -71,13 +71,6 @@ public abstract class BaseData {
      * post请求
      */
     public void postData(Context context, String path, HashMap<String,String> argsMap, int index, int validTime) {
-        //拼接map
-        Set<String> keySet = argsMap.keySet();
-        StringBuilder stringBuilder = new StringBuilder();
-        for (String key : keySet) {
-            stringBuilder.append(key).append(argsMap.get(key));
-        }
-
         this.mContext = context;
         //如果有效时间为0
         if (validTime == 0) {

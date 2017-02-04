@@ -67,7 +67,7 @@ public class HomePagerFragment extends BaseFragment {
 
     @Override
     public void onLoad() {
-        judgeShowView.setViewStatus(JudgeShowView.StatusType.STATUS_LOADING);
+
         new BaseData() {
             @Override
             public void setResultData(String data) {

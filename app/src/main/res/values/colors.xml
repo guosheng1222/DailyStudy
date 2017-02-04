@@ -23,4 +23,13 @@
     <color name="rg_background">#f5f5f5</color>
     <color name="select_text_color">#FFDA44</color>
     <color name="radiobutton_bg">#F1F1F1</color>
+    <color name="cate_title1">#FA7E75</color>
+    <color name="cate_title2">#FFB33D</color>
+    <color name="cate_title3">#95D665</color>
+    <color name="cate_title4">#F96D62</color>
+    <color name="cate_title5">#5DC3F2</color>
+    <color name="cate_title6">#92399C</color>
+    <color name="bg_list2">#f2f2f2</color>
+    <color name="bg_list3">#e7e7e7</color>
+    <color name="pop_bg_gray">#4F4F4F</color>
 </resources>

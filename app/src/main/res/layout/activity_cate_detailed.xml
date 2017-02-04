@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_cate_detailed"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.dailystudy.CateDetailedActivity">
+
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/red">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10px"
+            android:src="@drawable/vp_back" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="20px"
+            android:text="课程列表"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/activity_text_size" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="20px"
+            android:src="@drawable/abc_ic_search_api_mtrl_alpha" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/content"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80px"
+            android:orientation="horizontal">
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:id="@+id/rl_pop1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_frame"
+                android:gravity="center"
+                android:padding="2px">
+
+                <TextView
+                    android:id="@+id/tv_pop1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5px"
+                    android:text="摄影"
+                    android:textColor="@color/text_normal_color"
+                    android:textSize="@dimen/setting_text_size" />
+
+                <ImageView
+                    android:id="@+id/iv_pop1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5px"
+                    android:layout_toRightOf="@id/tv_pop1"
+                    android:src="@drawable/down" />
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:id="@+id/rl_pop2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_frame"
+                android:gravity="center"
+                android:padding="2px">
+
+                <TextView
+                    android:id="@+id/tv_pop2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5px"
+                    android:text="筛选"
+                    android:textColor="@color/text_normal_color"
+                    android:textSize="@dimen/setting_text_size" />
+
+                <ImageView
+                    android:id="@+id/iv_pop2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5px"
+                    android:layout_toRightOf="@id/tv_pop2"
+                    android:src="@drawable/down" />
+
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:id="@+id/rl_pop3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_frame"
+                android:gravity="center"
+                android:padding="2px">
+
+                <TextView
+                    android:id="@+id/tv_pop3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5px"
+                    android:text="排序"
+                    android:textColor="@color/text_normal_color"
+                    android:textSize="@dimen/setting_text_size" />
+
+                <ImageView
+                    android:id="@+id/iv_pop3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5px"
+                    android:layout_toRightOf="@id/tv_pop3"
+                    android:src="@drawable/down" />
+
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <ListView
+            android:id="@+id/class_listView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></ListView>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+
+
+
+    <include
+        android:id="@+id/loading"
+        layout="@layout/loading_layout"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/no_network"
+        layout="@layout/no_network_layout"
+        android:visibility="gone" />
+
+
+</com.zhy.autolayout.AutoLinearLayout>
