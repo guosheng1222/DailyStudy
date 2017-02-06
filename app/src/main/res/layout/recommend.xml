@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_margin="10px"
+    >
+
+    <ImageView
+        android:layout_width="350px"
+        android:layout_height="250px"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_launcher"
+        android:id="@+id/project_img"
+        />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="250px"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_margin="10px"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="XXX"
+            android:textColor="@color/black"
+            android:id="@+id/project_name"
+            android:textSize="20px"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="XXX"
+            android:id="@+id/school_name"
+            android:textSize="20px"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXX"
+            android:textColor="@color/green"
+            android:id="@+id/project_price"
+            android:gravity="center"
+            android:textSize="20px"
+            />
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="250px"
+        android:orientation="horizontal"
+        android:layout_marginTop="10px"
+        >
+        <ImageView
+            android:layout_width="35px"
+            android:layout_height="35px"
+            android:src="@drawable/user_account_icon"
+            android:layout_gravity="bottom"
+            />
+        <TextView
+            android:layout_gravity="bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXX"
+            android:id="@+id/user_num"
+            android:textSize="20px"
+            />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

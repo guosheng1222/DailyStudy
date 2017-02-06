@@ -2,7 +2,13 @@ package com.example.util;
 
 public interface UrlUtils {
     //首页接口
-    String home =  "http://www.meirixue.com/api.php?a=indexv9&c=index";
+    String homeurl =  "http://www.meirixue.com/api.php?a=indexv9&c=index";
+    //课程详情
+    String kechengdetails =  "http://www.meirixue.com/api.php?c=course&a=getCourseStep";
+    //轮播图的详情2
+    String kechengurl =  "http://www.meirixue.com/api.php?c=course&a=getCourseInfo";
+    //轮播图的详情1
+    String rooldetail="http://www.meirixue.com/api.php?c=activity&a=getActivityBak";
     // 登录接口
     String signIn = "http://www.meirixue.com/api.php?c=login&a=index";
     // 注册接口获得短信的验证码

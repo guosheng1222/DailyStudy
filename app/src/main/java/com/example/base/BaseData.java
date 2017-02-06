@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.example.util.CommonUtils;
+import com.example.util.LogUtils;
 import com.example.util.MD5Encoder;
 import com.example.util.NetUtils;
 import com.sunshine.retrofit.HttpUtil;
@@ -111,7 +112,7 @@ public abstract class BaseData {
 
     public abstract void setResultData(String data);
 
-    protected abstract void setResultError();
+    public abstract void setResultError();
 
     /**
      * 从本地请求数据
@@ -144,11 +145,18 @@ public abstract class BaseData {
      */
     private void getDataFromNet(final String path, final String args, final int index, final int validTime) {
         new HttpUtil.Builder(path)
-                .Success(str -> {
-                    writeDataToLocal(path, index, validTime, str);
+                .Success(new Success() {
+                    @Override
+                    public void Success(String model) {
+                        setResultData(model);
+                        writeDataToLocal(path,index,validTime,model);
+                    }
                 })
-                .Error(v -> {
-                    setResultError();
+                .Error(new Error() {
+                    @Override
+                    public void Error(Object... objects) {
+                        setResultError();
+                    }
                 }).get();
     }
 
@@ -158,12 +166,12 @@ public abstract class BaseData {
     private void postDataFromNet(final String path, final HashMap<String,String> argsMap, final int index, final int validTime) {
         new HttpUtil.Builder(path)
                 .Params(argsMap)
-                .Params("key", "value")
                 .Success(new Success() {
                     @Override
                     public void Success(String model) {
                         setResultData(model);
                         writeDataToLocal(path,index,validTime,model);
+                        LogUtils.d("lllllll","**********"+model);
                     }
                 })
                 .Error(new Error() {

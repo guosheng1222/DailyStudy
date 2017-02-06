@@ -2,6 +2,7 @@
 <com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
 
@@ -40,17 +41,94 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <!--轮播图-->
-                <android.support.v4.view.ViewPager
-                    android:id="@+id/home_vp"
+                <com.youth.banner.Banner
+                    android:id="@+id/home_banner"
                     android:layout_width="match_parent"
                     android:layout_height="300px"
-                    android:background="#000" />
+                    app:indicator_drawable_unselected="@drawable/dot_focus"
+                    app:indicator_drawable_selected="@drawable/dot_normal"
+                    app:image_scale_type="fit_xy"
+                    app:indicator_height="15px"
+                    app:indicator_width="15px"
+                    app:indicator_margin="10px"
+                    />
                 <!--分类-->
-                <GridView
-                    android:id="@+id/home_gv"
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/home_rlv"
                     android:layout_width="match_parent"
-                    android:layout_height="200px"
-                    android:numColumns="4" />
+                    android:layout_height="wrap_content"
+                     />
+                <include layout="@layout/adlist"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="15px"
+                    android:background="#F1F1F1"
+                    />
+                <include layout="@layout/hotprojcet"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="15px"
+                    android:background="#F1F1F1"
+                    />
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/recommend"
+                        android:layout_margin="10px"
+                        />
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        >
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:src="@mipmap/ic_launcher"
+                            android:scaleType="fitXY"
+                            android:layout_margin="10px"
+                            android:id="@+id/top1"
+                            />
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:src="@mipmap/ic_launcher"
+                            android:scaleType="fitXY"
+                            android:layout_margin="10px"
+                            android:id="@+id/top2"
+                            />
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/recommend_rlv"
+                        />
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/study2"
+                    android:layout_margin="10px"
+                    />
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/study_rlv"
+                    />
 
             </com.zhy.autolayout.AutoLinearLayout>
 

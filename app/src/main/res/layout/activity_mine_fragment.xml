@@ -237,38 +237,6 @@
 
         <include layout="@layout/line_view" />
 
-        <!--离线下载-->
-        <com.zhy.autolayout.AutoLinearLayout
-            android:id="@+id/offline_load"
-            android:layout_width="match_parent"
-            android:layout_height="88px"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="50px"
-                android:layout_height="50px"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center"
-                android:src="@drawable/myc" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_centerVertical="true"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:paddingLeft="22px"
-                android:text="离线下载"
-                android:textSize="38px"
-                android:textColor="@color/black"/>
-
-            <include layout="@layout/mine_right_icon" />
-
-
-        </com.zhy.autolayout.AutoLinearLayout>
-
-        <include layout="@layout/line_view" />
-
         <!--我的消息-->
         <com.zhy.autolayout.AutoLinearLayout
             android:id="@+id/mymessage"
@@ -293,9 +261,6 @@
                 android:text="我的消息"
                 android:textSize="38px"
                 android:textColor="@color/black" />
-
-            <include layout="@layout/mine_right_icon" />
-
 
         </com.zhy.autolayout.AutoLinearLayout>
 

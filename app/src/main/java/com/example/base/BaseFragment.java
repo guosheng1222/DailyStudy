@@ -30,16 +30,16 @@ public abstract class BaseFragment extends Fragment {
         judgeShowView = new JudgeShowView(getActivity()) {
             @Override
             protected void onLoad() {
-                new Thread(){
+                new Thread() {
                     @Override
                     public void run() {
                         super.run();
                         try {
                             sleep(200);
+                            BaseFragment.this.onLoad();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        BaseFragment.this.onLoad();
                     }
                 }.start();
 
@@ -57,7 +57,6 @@ public abstract class BaseFragment extends Fragment {
                 rootView.removeAllViews();
                 View view = BaseFragment.this.setSuccessView(statusCurrent);
                 rootView.addView(view);
-
             }
         };
         return rootView;
@@ -69,7 +68,6 @@ public abstract class BaseFragment extends Fragment {
 
 
     public abstract void onLoad();
-
 
 
 }

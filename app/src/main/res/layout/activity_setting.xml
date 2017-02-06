@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/activity_title_height">
 
-                <ImageView
+                <com.example.view.BackImageView
                     android:id="@+id/setting_back"
                     android:layout_width="100px"
                     android:layout_height="100px"
@@ -78,7 +78,7 @@
                 android:paddingLeft="@dimen/setting_linear_margin_horizontal"
                 android:showDividers="middle">
 
-                <RelativeLayout
+                <com.zhy.autolayout.AutoRelativeLayout
                     android:id="@+id/setting_clear"
                     style="@style/setting_item_container_style"
                     android:clickable="true">
@@ -94,7 +94,7 @@
                         android:text="3.12M"
                         android:textColor="@color/gray"
                         android:textSize="@dimen/setting_text_size_info" />
-                </RelativeLayout>
+                </com.zhy.autolayout.AutoRelativeLayout>
 
                 <RelativeLayout
                     android:id="@+id/setting_update"

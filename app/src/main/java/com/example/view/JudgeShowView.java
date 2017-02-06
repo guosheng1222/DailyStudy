@@ -18,14 +18,12 @@ public abstract class JudgeShowView extends FrameLayout implements View.OnClickL
     public static final int STATUS_LOADING = 2;
     public static final int STATUS_SUCCESS = 3;
 
-    private int statusCurrent = STATUS_UNLOAD;
+    private int statusCurrent = STATUS_LOADING;
 
     public JudgeShowView(Context context) {
         super(context);
-
-
         //判断显示的界面
-        //showView();
+        showView();
         //加载数据
         onLoad();
 
@@ -55,17 +53,12 @@ public abstract class JudgeShowView extends FrameLayout implements View.OnClickL
      * 显示界面效果
      */
     private void showUIView() {
-
-
         if (statusCurrent == STATUS_NO_NETWORK) {
             setDifferentView(STATUS_NO_NETWORK);
         }
-
-
         if (statusCurrent == STATUS_LOADING) {
             setDifferentView(STATUS_LOADING);
         }
-
         if (statusCurrent == STATUS_SUCCESS) {
             setSuccessView(statusCurrent);
         }

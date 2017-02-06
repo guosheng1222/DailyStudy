@@ -1,9 +1,10 @@
-
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.dailystudy">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name="com.example.app.MyApplication"
@@ -38,7 +39,8 @@
         <activity android:name=".MyMessageActivity" />
         <activity android:name=".PersonalInformationActivity" />
         <activity android:name=".UpdateNickNameActivity" />
+        <activity android:name=".RoolViewDetailsActivity" />
+        <activity android:name=".HDetailsActivity"></activity>
     </application>
-
 
 </manifest>

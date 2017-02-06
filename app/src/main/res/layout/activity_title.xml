@@ -4,7 +4,7 @@
     android:layout_height="@dimen/activity_title_height"
     android:background="@color/red"
     >
-        <example.com.view.BackImageView
+        <com.example.view.BackImageView
             android:layout_width="70px"
             android:layout_height="70px"
             android:layout_centerVertical="true"
