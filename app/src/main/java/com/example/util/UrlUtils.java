@@ -1,6 +1,15 @@
 package com.example.util;
 
 public interface UrlUtils {
+   // 圈子 热门 主体
+   String circle_hot_content="http://www.meirixue.com/api.php?c=circle&a=getCirclePostListByTid";
+    //圈子-热门接口 get请求
+   String circle_topic="http://www.meirixue.com/api.php?c=circle&a=getCircleNamesIndexV2";
+    //圈子-热门标题接口
+ String circle_hottitle="http://www.meirixue.com/api.php?c=circle&a=getRecommendTag";
+    //三级列表
+    String three_path = "http://www.meirixue.com/api.php?c=category&a=getTree";
+
     //首页接口
     String homeurl =  "http://www.meirixue.com/api.php?a=indexv9&c=index";
     //课程详情
@@ -132,6 +141,12 @@ public interface UrlUtils {
 
     // 分享相关
     public static final String SHARE_ADDRESS = "http://www.meirixue.com/api.php?c=course&a=getwapinfo&courseid=";
+
+
+    //课程列表数据
+    public static final String COURSE_HOME = "http://www.meirixue.com/api.php?";
+    public static final String COURSE_ARGS = "c=list&a=index&order=&p=1&isfree=&by=desc&cid=";
+
 
 
 }

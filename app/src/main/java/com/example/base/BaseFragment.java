@@ -63,10 +63,7 @@ public abstract class BaseFragment extends Fragment {
     }
 
     protected abstract View setSuccessView(int statusCurrent);
-
     protected abstract View setDifferentView(int status);
-
-
     public abstract void onLoad();
 
 

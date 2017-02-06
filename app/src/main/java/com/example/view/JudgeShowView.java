@@ -13,7 +13,6 @@ import static com.example.util.CommonUtils.runOnMainThread;
 
 public abstract class JudgeShowView extends FrameLayout implements View.OnClickListener {
 
-    public static final int STATUS_UNLOAD = 0;
     public static final int STATUS_NO_NETWORK = 1;
     public static final int STATUS_LOADING = 2;
     public static final int STATUS_SUCCESS = 3;
@@ -32,7 +31,6 @@ public abstract class JudgeShowView extends FrameLayout implements View.OnClickL
     protected abstract void onLoad();
 
     public abstract void setDifferentView(int status);
-
 
 
     /**
@@ -62,6 +60,7 @@ public abstract class JudgeShowView extends FrameLayout implements View.OnClickL
         if (statusCurrent == STATUS_SUCCESS) {
             setSuccessView(statusCurrent);
         }
+
     }
 
     public abstract void setSuccessView(int statusCurrent);

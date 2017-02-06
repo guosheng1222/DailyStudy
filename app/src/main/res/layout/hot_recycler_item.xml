@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:layout_marginBottom="20px"
+    android:orientation="vertical">
+    <!--用户头像及关注-->
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="15px">
+
+        <com.example.view.CircleImageView
+            android:id="@+id/hot_userIcon"
+            android:layout_width="80px"
+            android:layout_height="80px" />
+
+        <TextView
+            android:paddingLeft="20px"
+            android:id="@+id/hot_userName"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:text="用户名称"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:layout_width="100px"
+            android:layout_height="50px"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/attention_selector" />
+    </com.zhy.autolayout.AutoLinearLayout>
+    <!--图片展示类型-->
+    <include layout="@layout/hot_image_item" />
+
+    <TextView
+        android:id="@+id/hot_pTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40px"
+        android:layout_marginTop="20px"
+        android:text="来自艺术家"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/hot_pLeaderette"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40px"
+        android:layout_marginTop="10px"
+        android:text="尽致绝伦" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20px">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20px"
+            android:src="@mipmap/topic_label" />
+
+        <TextView
+            android:id="@+id/hot_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20px"
+            android:text="#手作#"
+            android:textColor="@color/red" />
+    </com.zhy.autolayout.AutoLinearLayout>
+    <LinearLayout
+        android:background="#f1f1f1"
+        android:layout_width="match_parent"
+        android:layout_height="2px"/>
+    <!--编辑-->
+    <include
+        layout="@layout/hot_editor_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+</com.zhy.autolayout.AutoLinearLayout>

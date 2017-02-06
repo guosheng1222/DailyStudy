@@ -1,9 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent">
-    <TextView
-        android:text="我是圈子"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-</LinearLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:orientation="horizontal"
+        android:background="@color/red"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/toSearch"
+            android:layout_marginLeft="40px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/add_friend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <android.support.design.widget.TabLayout
+            android:layout_centerHorizontal="true"
+            android:id="@+id/circle_tablayout"
+            android:layout_width="400px"
+            style="@style/TabLayoutTextStyle"
+            app:tabMode="fixed"
+            android:layout_height="wrap_content"
+            app:tabIndicatorColor="#fff"
+            app:tabSelectedTextColor="#fff"
+            app:tabTextColor="#fff"/>
+        <ImageView
+            android:layout_marginRight="40px"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/abc_ic_search_api_mtrl_alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.liaoinstan.springview.widget.SpringView
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+            <android.support.v4.view.ViewPager
+                android:id="@+id/circle_vp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+    </com.liaoinstan.springview.widget.SpringView>
+    <include
+        android:id="@+id/loading"
+        layout="@layout/loading_layout"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/no_network"
+        layout="@layout/no_network_layout"
+        android:visibility="gone" />
+</com.zhy.autolayout.AutoLinearLayout>

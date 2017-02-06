@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="20px">
+
+    <ImageView
+        android:id="@+id/topic_iv"
+        android:layout_width="150px"
+        android:layout_height="150px" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/topic_Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10px"
+            android:text="学霸挑战" />
+
+        <TextView
+            android:id="@+id/topic_Brief"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10px"
+            android:text="月球" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="10px"
+            android:paddingTop="20px">
+
+            <TextView
+                android:id="@+id/topic_userCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="月球"
+                android:textSize="20px"
+                />
+
+            <TextView
+                android:id="@+id/topic_postCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50px"
+                android:text="月球"
+                android:textSize="20px"
+                />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <ImageView
+        android:id="@+id/addMyTopic"
+        android:layout_width="60px"
+        android:layout_height="60px"
+        android:layout_gravity="center"
+        android:src="@mipmap/topic_focus" />
+
+    <ImageView
+        android:id="@+id/topicBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@mipmap/myrig"
+        android:visibility="gone" />
+
+
+</com.zhy.autolayout.AutoLinearLayout>

@@ -17,6 +17,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.HashMap;
+import java.util.Set;
 
 import static com.example.util.NetUtils.NET_WORK_TYPE_INVALID;
 
@@ -77,7 +78,7 @@ public abstract class BaseData {
             //判断是否有网   有就请求数据
             if (getIsNoNet()) {
                 //从网络请求数据
-                postDataFromNet(path, argsMap, index, validTime);
+                postDataFromNet(path, argsMap, stringBuilder.toString(),index, validTime);
             } else {
                 setResultError();
             }
@@ -88,7 +89,7 @@ public abstract class BaseData {
             if (TextUtils.isEmpty(data)) {
                 if (getIsNoNet()) {
                     //从网络请求数据
-                    postDataFromNet(path,argsMap, index, validTime);
+                    postDataFromNet(path,argsMap, stringBuilder.toString(), index, validTime);
                 } else {
                     setResultError();
                 }
@@ -158,12 +159,13 @@ public abstract class BaseData {
                         setResultError();
                     }
                 }).get();
+
     }
 
     /**
      * 从网络请求数据 Post
      */
-    private void postDataFromNet(final String path, final HashMap<String,String> argsMap, final int index, final int validTime) {
+    private void postDataFromNet(final String path, final HashMap<String,String> argsMap, final String args,final int index, final int validTime) {
         new HttpUtil.Builder(path)
                 .Params(argsMap)
                 .Success(new Success() {
@@ -172,6 +174,7 @@ public abstract class BaseData {
                         setResultData(model);
                         writeDataToLocal(path,index,validTime,model);
                         LogUtils.d("lllllll","**********"+model);
+                        writeDataToLocal(path+args,index,validTime,model);
                     }
                 })
                 .Error(new Error() {

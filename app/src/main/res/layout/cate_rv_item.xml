@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="90px">
+
+        <ImageView
+            android:id="@+id/cate_rv_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20px"
+            android:src="@drawable/fourr" />
+
+        <TextView
+            android:id="@+id/cate_rv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30px"
+            android:layout_toRightOf="@id/cate_rv_iv"
+            android:text="热门分类"
+            android:textColor="@color/text_normal_color"
+            android:textSize="@dimen/dialog_text_size" />
+
+        <ImageView
+            android:id="@+id/cate_rv_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30px"
+            android:src="@drawable/up1" />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20px"
+        android:background="#EFEFEF" />
+
+    <com.example.view.MyMeasureGridView
+        android:id="@+id/cate_rv_childGv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EFEFEF"
+        android:horizontalSpacing="20px"
+        android:numColumns="3"
+        android:paddingBottom="20px"
+        android:paddingLeft="20px"
+        android:paddingRight="20px"
+        android:verticalSpacing="20px"></com.example.view.MyMeasureGridView>
+
+</com.zhy.autolayout.AutoLinearLayout>

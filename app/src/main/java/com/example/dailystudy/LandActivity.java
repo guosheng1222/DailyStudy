@@ -15,6 +15,5 @@ public class LandActivity extends AppCompatActivity {
         //修改标题名
         titlename = (TextView)findViewById(R.id.titlename);
         titlename.setText("登录");
-
     }
 }

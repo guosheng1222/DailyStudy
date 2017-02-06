@@ -3,7 +3,10 @@ package com.example.manager;
 import android.support.v4.app.Fragment;
 
 import com.example.fragment.CategoryFragment;
+import com.example.fragment.CircleAttenFragment;
 import com.example.fragment.CircleFragment;
+import com.example.fragment.CircleHotFragment;
+import com.example.fragment.CircleTopicFragment;
 import com.example.fragment.HomePagerFragment;
 import com.example.fragment.MineFragment;
 
@@ -33,7 +36,15 @@ public class FragmentFactory {
             fragment = new CircleFragment();
         } else if (sign.equals("MineFragment")) {
             fragment = new MineFragment();
+        }else if (sign.equals("话题")) {
+            fragment = new CircleTopicFragment();
+        }else if (sign.equals("热门")) {
+            fragment = new CircleHotFragment();
+        }else if (sign.equals("关注")) {
+            fragment = new CircleAttenFragment();
         }
+
+
         fragmentMap.put(sign, fragment);
 
         return fragment;
