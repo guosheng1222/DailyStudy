@@ -52,7 +52,7 @@ public abstract class BaseData {
             }
         } else {
             //从本地获取数据
-            String data = getDataFromLocal(path, index, validTime);
+            String data = getDataFromLocal(path,index, validTime);
             //如果本地没有数据
             if (TextUtils.isEmpty(data)) {
                 if (getIsNoNet()) {
@@ -67,11 +67,10 @@ public abstract class BaseData {
             }
         }
     }
-
     /**
      * post请求
      */
-    public void postData(Context context, String path, HashMap<String, String> argsMap, int index, int validTime) {
+    public void postData(Context context, String path, HashMap<String,String> argsMap, int index, int validTime) {
         this.mContext = context;
         //如果有效时间为0
         Set<String> keySet = argsMap.keySet();
@@ -156,7 +155,7 @@ public abstract class BaseData {
                     @Override
                     public void Success(String model) {
                         setResultData(model);
-                        writeDataToLocal(path, index, validTime, model);
+                        writeDataToLocal(path,index,validTime,model);
                     }
                 })
                 .Error(new Error() {
@@ -164,21 +163,20 @@ public abstract class BaseData {
                     public void Error(Object... objects) {
                         setResultError();
                     }
-                }).get();
-
+                })
+                .get();
     }
 
     /**
      * 从网络请求数据 Post
      */
-    private void postDataFromNet(final String path, final HashMap<String, String> argsMap, final String args, final int index, final int validTime) {
+    private void postDataFromNet(final String path, final HashMap<String,String> argsMap, final String args,final int index, final int validTime) {
         new HttpUtil.Builder(path)
                 .Params(argsMap)
                 .Success(new Success() {
                     @Override
                     public void Success(String model) {
                         setResultData(model);
-                        writeDataToLocal(path, index, validTime, model);
                         writeDataToLocal(path + args, index, validTime, model);
                     }
                 })
@@ -187,8 +185,8 @@ public abstract class BaseData {
                     public void Error(Object... objects) {
                         setResultError();
                     }
-                }).post();
-
+                })
+                .post();
     }
 
     /**

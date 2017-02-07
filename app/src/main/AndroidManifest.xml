@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.dailystudy">
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"/>
     <application
         android:name="com.example.app.MyApplication"
@@ -46,6 +46,7 @@
         <activity android:name=".SearchFriendActivity"></activity>
         <activity android:name=".RoolViewDetailsActivity" />
         <activity android:name=".HDetailsActivity"></activity>
+        <activity android:name=".TopicActivity"></activity>
     </application>
 
 </manifest>
