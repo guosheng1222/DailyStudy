@@ -55,7 +55,9 @@
             android:id="@+id/password"
             android:background="@color/colorWhite"
             android:hint="请输入密码"
-            android:textSize="30px" />
+            android:textSize="30px"
+            android:password="true"
+            />
     </com.zhy.autolayout.AutoLinearLayout>
 
     <include layout="@layout/line_view" />

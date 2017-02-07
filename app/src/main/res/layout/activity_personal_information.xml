@@ -150,5 +150,6 @@
             android:textSize="35px"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="30px"
+            android:id="@+id/exist"
             />
 </com.zhy.autolayout.AutoRelativeLayout>

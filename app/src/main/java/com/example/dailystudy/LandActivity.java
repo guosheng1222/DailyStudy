@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.app.MyApplication;
 import com.example.bean.UserMessage;
 import com.example.manager.HttpManger;
 import com.example.util.TextViewUtils;
@@ -44,10 +43,13 @@ public class LandActivity extends AppCompatActivity implements View.OnClickListe
 
         mf_land = (Button) findViewById(R.id.mf_land);
         mf_register = (Button) findViewById(R.id.mf_register);
-        mf_land.setOnClickListener(this);
-        mf_register.setOnClickListener(this);
+
         username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
+
+        mf_land.setOnClickListener(this);
+        mf_register.setOnClickListener(this);
+
 
     }
 
@@ -55,6 +57,10 @@ public class LandActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.mf_land:
+                if(username.getText().toString().equals("")||password.getText().toString().equals("")){
+                Toast.makeText(LandActivity.this,"不能为空" ,Toast.LENGTH_LONG).show();
+                return;
+            }
                 Map<String, String> map = new HashMap<>();
                 map.put("userName", TextViewUtils.getText(username));
                 map.put("password",TextViewUtils.getText(password));
@@ -73,7 +79,6 @@ public class LandActivity extends AppCompatActivity implements View.OnClickListe
                         edit.putString("sex",user_sex);
                         edit.putString("image",user_middle_log);
                         edit.commit();
-
                         finish();
                         Toast.makeText(LandActivity.this,"登陆成功" ,Toast.LENGTH_LONG).show();
                     }

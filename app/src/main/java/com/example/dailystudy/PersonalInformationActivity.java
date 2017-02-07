@@ -1,8 +1,10 @@
 package com.example.dailystudy;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,6 +18,7 @@ public class PersonalInformationActivity extends AppCompatActivity implements Vi
     private TextView p_name;
     private TextView p_phone;
     private CheckBox p_boy,p_girl;
+    private Button exist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,7 @@ public class PersonalInformationActivity extends AppCompatActivity implements Vi
         p_phone = (TextView) findViewById(R.id.p_phone);
         p_boy = (CheckBox) findViewById(R.id.p_boy);
         p_girl = (CheckBox) findViewById(R.id.p_girl);
+        exist = (Button) findViewById(R.id.exist);
 
         String name = getIntent().getStringExtra("name");
         String sex = getIntent().getStringExtra("sex");
@@ -48,6 +52,7 @@ public class PersonalInformationActivity extends AppCompatActivity implements Vi
 
         p_boy.setOnClickListener(this);
         p_girl.setOnClickListener(this);
+        exist.setOnClickListener(this);
     }
 
     @Override
@@ -58,6 +63,13 @@ public class PersonalInformationActivity extends AppCompatActivity implements Vi
                 break;
             case R.id.p_girl:
                 p_boy.setChecked(false);
+                break;
+            case R.id.exist:
+                SharedPreferences sharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
+                SharedPreferences.Editor edit = sharedPreferences.edit();
+                edit.clear();
+                edit.commit();
+                finish();
                 break;
         }
     }
