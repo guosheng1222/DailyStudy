@@ -80,7 +80,6 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             mf_land_body.setVisibility(View.GONE);
             mf_username.setText(name);
             Glide.with(getActivity()).load(Myiamges).into(mf_image);
-
         }
         setting.setOnClickListener(this);
         feedback.setOnClickListener(this);
