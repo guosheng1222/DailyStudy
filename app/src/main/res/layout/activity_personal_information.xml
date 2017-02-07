@@ -26,14 +26,17 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20px"
                 />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+
+            <com.example.view.CircleImageView
+                android:layout_width="160px"
+                android:layout_height="160px"
                 android:src="@drawable/girl"
+                android:id="@+id/p_img"
+                android:layout_marginRight="11dp"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="20px"
-                />
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="11dp" />
 
         </com.zhy.autolayout.AutoRelativeLayout>
 
@@ -48,6 +51,7 @@
                 android:layout_height="wrap_content"
                 android:text="昵称"
                 android:textSize="40px"
+
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="20px"
                 android:textColor="@color/black"
@@ -57,6 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="XXXXXX"
+                android:id="@+id/p_name"
                 android:textSize="40px"
                 android:layout_gravity="center_vertical"
                 android:textColor="@color/black"
@@ -77,6 +82,7 @@
                 android:layout_height="wrap_content"
                 android:text="手机号码"
                 android:textSize="40px"
+
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="20px"
                 android:textColor="@color/black"
@@ -86,6 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="XXXXXX"
+                android:id="@+id/p_phone"
                 android:textSize="40px"
                 android:layout_gravity="center_vertical"
                 android:textColor="@color/black"
@@ -114,6 +121,7 @@
                 android:layout_width="150px"
                 android:layout_height="wrap_content"
                 android:text="女生"
+                android:id="@+id/p_girl"
                 android:layout_gravity="center_vertical"
                 style="@style/WomanCheckboxTheme"
                 />
@@ -121,6 +129,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="男生"
+                android:id="@+id/p_boy"
                 android:layout_gravity="center_vertical"
                 style="@style/ManCheckboxTheme"
                 android:layout_marginRight="30px"

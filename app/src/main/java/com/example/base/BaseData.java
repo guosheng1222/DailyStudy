@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.example.util.CommonUtils;
-import com.example.util.LogUtils;
 import com.example.util.MD5Encoder;
 import com.example.util.NetUtils;
 import com.sunshine.retrofit.HttpUtil;
@@ -17,6 +16,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.HashMap;
+import java.util.Set;
 
 import static com.example.util.NetUtils.NET_WORK_TYPE_INVALID;
 
@@ -52,7 +52,7 @@ public abstract class BaseData {
             }
         } else {
             //从本地获取数据
-            String data = getDataFromLocal(path,index, validTime);
+            String data = getDataFromLocal(path, index, validTime);
             //如果本地没有数据
             if (TextUtils.isEmpty(data)) {
                 if (getIsNoNet()) {
@@ -67,29 +67,35 @@ public abstract class BaseData {
             }
         }
     }
+
     /**
      * post请求
      */
-    public void postData(Context context, String path, HashMap<String,String> argsMap, int index, int validTime) {
+    public void postData(Context context, String path, HashMap<String, String> argsMap, int index, int validTime) {
         this.mContext = context;
         //如果有效时间为0
+        Set<String> keySet = argsMap.keySet();
         StringBuilder stringBuilder = new StringBuilder();
+        for (String key : keySet) {
+            stringBuilder.append(key).append(argsMap.get(key));
+        }
+
         if (validTime == 0) {
             //判断是否有网   有就请求数据
             if (getIsNoNet()) {
                 //从网络请求数据
-                postDataFromNet(path, argsMap, stringBuilder.toString(),index, validTime);
+                postDataFromNet(path, argsMap, stringBuilder.toString(), index, validTime);
             } else {
                 setResultError();
             }
         } else {
             //从本地获取数据
-            String data = getDataFromLocal(path,index,validTime);
+            String data = getDataFromLocal(path, index, validTime);
             //如果本地没有数据
             if (TextUtils.isEmpty(data)) {
                 if (getIsNoNet()) {
                     //从网络请求数据
-                    postDataFromNet(path,argsMap, stringBuilder.toString(), index, validTime);
+                    postDataFromNet(path, argsMap, stringBuilder.toString(), index, validTime);
                 } else {
                     setResultError();
                 }
@@ -150,7 +156,7 @@ public abstract class BaseData {
                     @Override
                     public void Success(String model) {
                         setResultData(model);
-                        writeDataToLocal(path,index,validTime,model);
+                        writeDataToLocal(path, index, validTime, model);
                     }
                 })
                 .Error(new Error() {
@@ -165,16 +171,15 @@ public abstract class BaseData {
     /**
      * 从网络请求数据 Post
      */
-    private void postDataFromNet(final String path, final HashMap<String,String> argsMap, final String args,final int index, final int validTime) {
+    private void postDataFromNet(final String path, final HashMap<String, String> argsMap, final String args, final int index, final int validTime) {
         new HttpUtil.Builder(path)
                 .Params(argsMap)
                 .Success(new Success() {
                     @Override
                     public void Success(String model) {
                         setResultData(model);
-                        writeDataToLocal(path,index,validTime,model);
-                        LogUtils.d("lllllll","**********"+model);
-                        writeDataToLocal(path+args,index,validTime,model);
+                        writeDataToLocal(path, index, validTime, model);
+                        writeDataToLocal(path + args, index, validTime, model);
                     }
                 })
                 .Error(new Error() {
@@ -182,8 +187,8 @@ public abstract class BaseData {
                     public void Error(Object... objects) {
                         setResultError();
                     }
-                })
-                .post();
+                }).post();
+
     }
 
     /**

@@ -19,7 +19,9 @@
         android:layout_width="match_parent"
         android:layout_height="290px"
         android:background="@mipmap/my2"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:id="@+id/mf_land_body"
+        >
 
         <com.example.view.CircleImageView
             android:id="@+id/head_iamge"
@@ -66,6 +68,7 @@
         android:layout_height="wrap_content"
         android:background="@mipmap/my2"
         android:orientation="vertical"
+        android:id="@+id/mf_user"
         android:visibility="gone"
         >
 
@@ -79,7 +82,9 @@
                 android:layout_height="170px"
                 android:layout_marginLeft="95px"
                 android:layout_marginTop="60px"
-                android:src="@drawable/head" />
+                android:src="@drawable/head"
+                android:id="@+id/mf_image"
+                />
 
             <TextView
                 android:layout_width="250px"
@@ -87,6 +92,7 @@
                 android:layout_marginLeft="65px"
                 android:layout_marginTop="120px"
                 android:text="xxxx"
+                android:id="@+id/mf_username"
                 android:textColor="@color/colorWhite" />
 
             <ImageView
@@ -95,6 +101,7 @@
                 android:layout_marginLeft="65px"
                 android:layout_marginTop="112px"
                 android:layout_weight="1"
+                android:id="@+id/mf_more"
                 android:src="@drawable/dk"
                 android:textColor="@color/colorWhite" />
         </com.zhy.autolayout.AutoLinearLayout>

@@ -21,6 +21,10 @@ public class MyApplication extends Application {
     private static Context context;
     private static int mainThreadId;
     private static Handler handler;
+    public static boolean isLand=false;
+    public static boolean isUser=false;
+    public static boolean isSex=false;
+    public static int sex = 1 ;
 
     @Override
     public void onCreate() {

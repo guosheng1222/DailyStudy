@@ -24,7 +24,7 @@
             android:src="@drawable/phone" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="110px"
             android:layout_weight="1"
@@ -52,6 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="110px"
             android:layout_weight="1"
+            android:id="@+id/password"
             android:background="@color/colorWhite"
             android:hint="请输入密码"
             android:textSize="30px" />
@@ -87,7 +88,9 @@
         android:layout_marginRight="18px"
         android:layout_marginTop="140px"
         android:background="@drawable/lanlog"
-        android:text="登录" />
+        android:text="登录"
+        android:id="@+id/mf_land"
+        />
 
     <Button
         android:layout_width="match_parent"
@@ -97,7 +100,8 @@
         android:layout_marginTop="40px"
         android:background="@drawable/landlogin"
         android:text="立即注册"
-        android:textColor="@color/red" />
+        android:textColor="@color/red"
+        android:id="@+id/mf_register"/>
 
     <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
