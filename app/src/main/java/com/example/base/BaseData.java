@@ -16,7 +16,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.HashMap;
-import java.util.Set;
 
 import static com.example.util.NetUtils.NET_WORK_TYPE_INVALID;
 
@@ -73,6 +72,7 @@ public abstract class BaseData {
     public void postData(Context context, String path, HashMap<String,String> argsMap, int index, int validTime) {
         this.mContext = context;
         //如果有效时间为0
+        StringBuilder stringBuilder = new StringBuilder();
         if (validTime == 0) {
             //判断是否有网   有就请求数据
             if (getIsNoNet()) {

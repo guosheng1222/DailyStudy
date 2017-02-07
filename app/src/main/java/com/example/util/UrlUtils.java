@@ -138,8 +138,7 @@ public interface UrlUtils {
 
 
     //课程列表数据
-    public static final String COURSE_HOME = "http://www.meirixue.com/api.php?";
-    public static final String COURSE_ARGS = "c=list&a=index&order=&p=1&isfree=&by=desc&cid=";
+    public static final String COURSE_HOME = "http://www.meirixue.com/api.php?c=list&a=index";
 
 
 

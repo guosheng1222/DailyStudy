@@ -14,6 +14,7 @@ import com.example.bean.CategoryFace;
 import com.example.dailystudy.R;
 import com.example.manager.ChangeHideManager;
 import com.example.util.CommonUtils;
+import com.example.util.ListUtils;
 import com.example.util.UrlUtils;
 import com.example.view.JudgeShowView;
 import com.google.gson.Gson;
@@ -21,7 +22,6 @@ import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -82,6 +82,11 @@ public class CategoryFragment extends BaseFragment {
         for (int i = 0; i < categoryFace.length; i++) {
             cateList.add(categoryFace[i]);
         }
+
+        //将cateList赋给-，可供整个应用使用
+        ListUtils.cateList = cateList;
+
+
         cate_rv.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         cate_rv.setAdapter(new CommonAdapter<CategoryFace>(getActivity(), R.layout.cate_rv_item, cateList) {
@@ -154,7 +159,7 @@ public class CategoryFragment extends BaseFragment {
             }
 
             @Override
-            protected void setResultError() {
+            public void setResultError() {
                 judgeShowView.setViewStatus(JudgeShowView.StatusType.STATUS_NO_NETWORK);
             }
         }.getData(getActivity(), UrlUtils.sort, null, 1, BaseData.NORMALTIME);
