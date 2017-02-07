@@ -1,12 +1,13 @@
 package com.example.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by lenovo on 2017/1/16.
  */
 
-public class CategoryFace {
+public class CategoryFace implements Serializable{
 
 
     /**

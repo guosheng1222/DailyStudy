@@ -7,7 +7,7 @@
 z
     <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70px"
+        android:layout_height="85px"
         android:orientation="horizontal">
 
         <ImageView
@@ -21,7 +21,7 @@ z
         <TextView
             android:id="@+id/tv_list_first_item"
             android:layout_width="wrap_content"
-            android:layout_height="70px"
+            android:layout_height="match_parent"
             android:layout_marginLeft="15px"
             android:gravity="center_vertical"
             android:text="多彩生活"

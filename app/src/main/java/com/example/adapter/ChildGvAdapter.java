@@ -2,7 +2,6 @@ package com.example.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -31,7 +30,9 @@ public class ChildGvAdapter extends BaseAdapter {
         this.cateList = cateList;
         this.index = index;
         for (int i = 0; i < cateList.size(); i++) {
-            nodes = cateList.get(i).getNodes();
+            if (i == index) {
+                nodes = cateList.get(index).getNodes();
+            }
         }
     }
 
@@ -74,7 +75,6 @@ public class ChildGvAdapter extends BaseAdapter {
 
                 if (position != 0) {
                     intent.putExtra("id", nodes.get(position - 1).getId());
-                    Log.i("TAG", "-------"+nodes.get(position - 1).getId());
                 }
                 intent.putExtra("name", cateList.get(index).getCname());
                 context.startActivity(intent);

@@ -6,7 +6,7 @@
     <TextView
         android:id="@+id/simple_list_tv"
         android:layout_width="wrap_content"
-        android:layout_height="70px"
+        android:layout_height="85px"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="15px"
         android:gravity="center_vertical"

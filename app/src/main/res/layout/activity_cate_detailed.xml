@@ -40,6 +40,17 @@
             android:src="@drawable/abc_ic_search_api_mtrl_alpha" />
     </com.zhy.autolayout.AutoRelativeLayout>
 
+
+    <include
+        android:id="@+id/loading"
+        layout="@layout/loading_layout"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/no_network"
+        layout="@layout/no_network_layout"
+        android:visibility="gone" />
+
     <com.zhy.autolayout.AutoLinearLayout
         android:id="@+id/content"
         android:orientation="vertical"
@@ -155,19 +166,6 @@
             android:layout_height="wrap_content"></ListView>
 
     </com.zhy.autolayout.AutoLinearLayout>
-
-
-
-
-    <include
-        android:id="@+id/loading"
-        layout="@layout/loading_layout"
-        android:visibility="gone" />
-
-    <include
-        android:id="@+id/no_network"
-        layout="@layout/no_network_layout"
-        android:visibility="gone" />
 
 
 </com.zhy.autolayout.AutoLinearLayout>
