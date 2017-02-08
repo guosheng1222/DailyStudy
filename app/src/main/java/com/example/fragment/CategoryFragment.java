@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.adapter.ChildGvAdapter;
@@ -141,9 +142,14 @@ public class CategoryFragment extends BaseFragment {
     @Override
     protected View setDifferentView(int status) {
         view = CommonUtils.inflate(R.layout.fragment_category);
-
         ChangeHideManager.changeVisible(view, status);
-
+        LinearLayout no_network = (LinearLayout) view.findViewById(R.id.no_network);
+        no_network.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onLoad();
+            }
+        });
         return view;
     }
 

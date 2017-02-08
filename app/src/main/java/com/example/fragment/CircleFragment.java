@@ -44,6 +44,13 @@ public class CircleFragment extends BaseFragment implements View.OnClickListener
     protected View setDifferentView(int status) {
         view = View.inflate(getActivity(),R.layout.fragment_circle,null);
         ChangeHideManager.changeVisible(view, status);
+        LinearLayout no_network = (LinearLayout) view.findViewById(R.id.no_network);
+        no_network.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onLoad();
+            }
+        });
         return view;
     }
 

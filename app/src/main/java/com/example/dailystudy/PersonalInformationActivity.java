@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -50,7 +49,6 @@ public class PersonalInformationActivity extends AppCompatActivity implements Vi
     private static final int CROP = 102;
 
     private String imagepath;
-    private CheckBox p_boy,p_girl;
     private Button exist;
 
     @Override
@@ -58,6 +56,7 @@ public class PersonalInformationActivity extends AppCompatActivity implements Vi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_information);
         sp = getSharedPreferences("user", MODE_PRIVATE);
+        exist = (Button) findViewById(R.id.exist);
         edit = sp.edit();
         //修改标题名
         titlename = (TextView) findViewById(R.id.titlename);
@@ -86,6 +85,7 @@ public class PersonalInformationActivity extends AppCompatActivity implements Vi
         p_boy.setOnClickListener(this);
         p_girl.setOnClickListener(this);
         p_img.setOnClickListener(this);
+        exist.setOnClickListener(this);
     }
 
     @Override

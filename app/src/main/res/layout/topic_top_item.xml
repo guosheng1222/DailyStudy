@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="280px"
+    >
+    <!--背景图-->
+    <ImageView
+        android:background="@color/bg_list2"
+        android:id="@+id/topback_iv"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        />
+    <!--用户头像-->
+    <ImageView
+        android:id="@+id/topUser_iv"
+        android:layout_width="150px"
+        android:layout_height="150px"
+        android:scaleType="centerCrop"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="40px"
+        android:src="@drawable/default_three" />
+    <!--是否要加入-->
+    <CheckBox
+        android:id="@+id/topUpdate"
+        android:layout_width="80px"
+        android:layout_height="80px"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:layout_marginRight="20px"
+        android:background="@drawable/update_selector"
+        android:button="@null" />
+
+    <TextView
+        android:layout_alignTop="@+id/topUser_iv"
+        android:id="@+id/topTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80px"
+        android:layout_toRightOf="@+id/topUser_iv"
+        android:padding="10px"
+        android:text="就是要吐槽"
+        android:textColor="@color/colorWhite"
+        android:textSize="28px" />
+
+    <TextView
+        android:id="@+id/topBrief"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/topTitle"
+        android:layout_below="@+id/topTitle"
+        android:padding="10px"
+        android:text="月球探险"
+        android:textColor="@color/colorWhite"
+        android:textSize="25px"
+        />
+
+    <TextView
+        android:id="@+id/userCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/topTitle"
+        android:layout_below="@+id/topBrief"
+        android:drawableLeft="@drawable/comm_feedcount_topic"
+        android:drawablePadding="15px"
+        android:padding="15px"
+        android:text="145"
+        android:textSize="25px"
+        android:textColor="@color/colorWhite" />
+
+    <TextView
+        android:id="@+id/topPostCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/userCount"
+        android:layout_marginLeft="50px"
+        android:layout_toRightOf="@+id/userCount"
+        android:drawableLeft="@drawable/comm_fanscount_topic"
+        android:drawablePadding="15px"
+        android:padding="15px"
+        android:text="184"
+        android:textSize="25px"
+        android:textColor="@color/colorWhite" />
+
+
+</com.zhy.autolayout.AutoRelativeLayout>

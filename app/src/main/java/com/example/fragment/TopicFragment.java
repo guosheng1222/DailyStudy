@@ -3,6 +3,7 @@ package com.example.fragment;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -23,7 +24,6 @@ import com.google.gson.Gson;
 import com.liaoinstan.springview.container.DefaultFooter;
 import com.liaoinstan.springview.widget.SpringView;
 import com.melnykov.fab.FloatingActionButton;
-import com.melnykov.fab.ObservableScrollView;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 import com.zhy.autolayout.AutoLinearLayout;
@@ -39,84 +39,91 @@ import static com.example.dailystudy.R.id.hot_two_iv1;
 import static com.example.dailystudy.R.id.hot_two_iv2;
 
 /**
- * Created by PC on 2017/1/16.
+ * Created by PC on 2017/2/6.
  */
 
-public class CircleHotVpFragment extends BaseFragment {
-    View view;
+public class TopicFragment extends BaseFragment implements  SpringView.OnFreshListener {
+    private View view;
     HashMap<String, String> argsMap = new HashMap<>();
-    ArrayList<BeanHotContent.DataBean> contentList = new ArrayList<>();
     private RecyclerView myRecycler;
-    private String title;
+    ArrayList<BeanHotContent.DataBean> contentList=new ArrayList<>();
     private SpringView mySpringview;
-    private ObservableScrollView myScrollView;
-    private int page=1;
-    private CommonAdapter<BeanHotContent.DataBean> commonAdapter;
-    private String tid;
-
     @Override
     protected View setSuccessView(int statusCurrent) {
-        view = View.inflate(getActivity(), R.layout.circle_hot_vp_fragment, null);
+        view = View.inflate(getActivity(), R.layout.topic_fragment, null);
         ChangeHideManager.changeVisible(view, statusCurrent);
         myRecycler = (RecyclerView) view.findViewById(R.id.circle_hot_vp_recyclerView);
-        //把参数放入集合
-        myRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
         fab.attachToRecyclerView(myRecycler);
-        mySpringview = (SpringView) view.findViewById(R.id.content);
+
+        mySpringview = (SpringView)view.findViewById(R.id.mySpringView);
         mySpringview.setHeader(new MyHeader());
         mySpringview.setFooter(new DefaultFooter(getActivity()));
         mySpringview.setType(SpringView.Type.FOLLOW);
-        mySpringview.setListener(new SpringView.OnFreshListener() {
-            @Override
-            public void onRefresh() {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        onLoad();
-                        mySpringview.onFinishFreshAndLoad();
-                    }
-                }, 1500);
-            }
-
-            @Override
-            public void onLoadmore() {
-                page++;
-                Handler handler=new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        onLoad();
-                        mySpringview.onFinishFreshAndLoad();
-                    }
-                },1500);
-            }
-        });
+        mySpringview.setListener(this);
         return view;
     }
 
     @Override
     protected View setDifferentView(int status) {
         //设置加载失败的视图
-        view = View.inflate(getActivity(), R.layout.circle_hot_vp_fragment, null);
+        view = View.inflate(getActivity(), R.layout.topic_fragment, null);
         ChangeHideManager.changeVisible(view, status);
         LinearLayout no_network = (LinearLayout) view.findViewById(R.id.no_network);
         no_network.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onLoad();
-                mySpringview.onFinishFreshAndLoad();
             }
         });
         return view;
     }
+    @Override
+    public void onLoad() {
+        String nid = getArguments().getString("nid");
+        String order = getArguments().getString("order");
 
-    //设置列表
-    private void initRecycler() {
-        //设置适配器
-        commonAdapter = new CommonAdapter<BeanHotContent.DataBean>(getActivity(), R.layout.hot_recycler_item, contentList) {
+        argsMap.put("nid", nid);
+        argsMap.put("order", order);
+        argsMap.put("page", "1");
+        judgeShowView.setViewStatus(JudgeShowView.StatusType.STATUS_LOADING);
+        new BaseData() {
+           @Override
+           public void setResultData(String data) {
+               judgeShowView.setViewStatus(JudgeShowView.StatusType.STATUS_SUCCESS);
+               Gson gson = new Gson();
+               BeanHotContent beanHotContent = gson.fromJson(data, BeanHotContent.class);
+               if (beanHotContent.getData() != null) {
+                   contentList = (ArrayList<BeanHotContent.DataBean>) beanHotContent.getData();
+                   initRecycler();
+               } else {
+                   onLoad();
+               }
+           }
             @Override
-            protected void convert(ViewHolder holder, BeanHotContent.DataBean dataBean, int position) {                CircleImageView hot_userIcon = holder.getView(R.id.hot_userIcon);
+           public void setResultError() {
+               judgeShowView.setViewStatus(JudgeShowView.StatusType.STATUS_NO_NETWORK);
+           }
+       }.postData(getActivity(),UrlUtils.circle_topic_bottom,argsMap,0,BaseData.NOTIME);
+    }
+
+    private void initRecycler() {
+        //设置布局管理器
+        myRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
+        myRecycler.addItemDecoration(new DividerItemDecoration(
+                getActivity(), DividerItemDecoration.VERTICAL));
+      /*  myRecycler.setLayoutManager(new LinearLayoutManager(getActivity()) {
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        });*/
+        //设置适配器
+        myRecycler.setAdapter(new CommonAdapter<BeanHotContent.DataBean>(getActivity(), R.layout.hot_recycler_item, contentList) {
+            @Override
+            protected void convert(ViewHolder holder, BeanHotContent.DataBean dataBean, int position) {
+
+                CircleImageView hot_userIcon = holder.getView(R.id.hot_userIcon);
                 Glide.with(getActivity())
                         .load(dataBean.getUser_small_log())
                         .placeholder(R.mipmap.head)
@@ -131,7 +138,6 @@ public class CircleHotVpFragment extends BaseFragment {
                 }
                 AutoLinearLayout hot_llt_three = holder.getView(R.id.hot_llt_three);
                 AutoLinearLayout hot_llt_two = holder.getView(R.id.hot_llt_two);
-                holder.setText(R.id.hot_type, "#" + title + "#");
                 holder.setText(R.id.hot_likeCount, dataBean.getP_dig());
                 holder.setText(R.id.hot_messageCount, dataBean.getP_replycount());
                 holder.setText(R.id.hot_shareCount, dataBean.getP_sharecount());
@@ -213,51 +219,31 @@ public class CircleHotVpFragment extends BaseFragment {
                     }
                 }
             }
-        };
+        });
+    }
+
+    public static Fragment getFragment(String order, String nid) {
+        Fragment f1 = new TopicFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("nid", nid);
+        bundle.putString("order", order);
+        f1.setArguments(bundle);
+        return f1;
     }
 
     @Override
-    public void onLoad() {
-        judgeShowView.setViewStatus(JudgeShowView.StatusType.STATUS_LOADING);
-        tid = getArguments().getString("tid");
-        title = getArguments().getString("title");
-        argsMap.put("tid", tid);
-        argsMap.put("page", String.valueOf(page));
-        new BaseData() {
+    public void onRefresh() {
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void setResultData(String data) {
-                judgeShowView.setViewStatus(JudgeShowView.StatusType.STATUS_SUCCESS);
-                Gson gson = new Gson();
-                BeanHotContent beanHotContent = gson.fromJson(data, BeanHotContent.class);
-                if (beanHotContent.getData() != null) {
-                    if(page==1){
-                        contentList.addAll(beanHotContent.getData());
-                        initRecycler();
-                        myRecycler.setAdapter(commonAdapter);
-                    }
-                    else{
-                        contentList.addAll(contentList.size(),beanHotContent.getData());
-                        myRecycler.setAdapter(commonAdapter);
-                        commonAdapter.notifyDataSetChanged();
-                    }
-                } else {
-                    onLoad();
-                }
+            public void run() {
+                mySpringview.onFinishFreshAndLoad();
+                onLoad();
             }
-
-            @Override
-            public void setResultError() {
-                judgeShowView.setViewStatus(JudgeShowView.StatusType.STATUS_NO_NETWORK);
-            }
-        }.postData(getActivity(), UrlUtils.circle_hot_content, argsMap, 0, BaseData.NOTIME);
+        }, 1500);
     }
 
-    public static Fragment getFragment(String title, String tid) {
-        Fragment f1 = new CircleHotVpFragment();
-        Bundle bundle = new Bundle();
-        bundle.putString("tid", tid);
-        bundle.putString("title", title);
-        f1.setArguments(bundle);
-        return f1;
+    @Override
+    public void onLoadmore() {
+
     }
 }

@@ -89,7 +89,7 @@ public class MyHeader extends BaseHeader implements SpringView.DragHander{
      */
     @Override
     public int getDragLimitHeight(View rootView) {
-        return 150;
+        return 200;
     }
 
     /**
@@ -99,7 +99,7 @@ public class MyHeader extends BaseHeader implements SpringView.DragHander{
      */
     @Override
     public int getDragMaxHeight(View rootView) {
-        return 300;
+        return 400;
     }
 
     /**

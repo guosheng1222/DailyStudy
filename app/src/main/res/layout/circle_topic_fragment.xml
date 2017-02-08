@@ -29,12 +29,36 @@
                 android:id="@+id/circle_topic_banner"
                 android:layout_width="match_parent"
                 android:layout_height="300px" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/mycircle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                >
+            <TextView
+                android:id="@+id/tv_mycircle"
+                android:textColor="@color/black"
+                android:layout_marginLeft="12px"
+                android:text="我的圈子"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_marginLeft="12px"
+                android:background="#F1f1f1"
+                android:layout_width="match_parent"
+                android:layout_height="2px"/>
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:descendantFocusability="blocksDescendants">
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/topic_mycircle_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 />
+            </com.zhy.autolayout.AutoRelativeLayout>
+            </LinearLayout>
             <TextView
                 android:textColor="@color/black"
                 android:layout_marginLeft="12px"
@@ -46,11 +70,16 @@
                 android:background="#F1f1f1"
                 android:layout_width="match_parent"
                 android:layout_height="2px"/>
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:descendantFocusability="blocksDescendants">
             <android.support.v7.widget.RecyclerView
                 android:layout_margin="12px"
                 android:id="@+id/topic_hotcircle_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+            </com.zhy.autolayout.AutoRelativeLayout>
         </com.zhy.autolayout.AutoLinearLayout>
         </ScrollView>
     </com.liaoinstan.springview.widget.SpringView>

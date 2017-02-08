@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_topic"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:background="@color/rb_text_check"
+        android:layout_width="match_parent"
+        android:layout_height="100px">
+        <ImageView
+            android:id="@+id/back"
+            android:layout_centerVertical="true"
+            android:src="@drawable/back"
+            android:layout_width="60px"
+            android:layout_height="60px" />
+        <TextView
+            android:id="@+id/topic_tv_title"
+            android:textSize="@dimen/activity_text_size"
+            android:textColor="@color/colorWhite"
+            android:layout_centerInParent="true"
+            android:text="标题"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_marginRight="15px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/post_publish"
+            android:layout_width="60px"
+            android:layout_height="60px" />
+    </RelativeLayout>
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:fitsSystemWindows="true">
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsingToolbarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <include
+                    layout="@layout/topic_top_item"
+                    app:layout_collapseMode="parallax" />
+            </android.support.design.widget.CollapsingToolbarLayout>
+        </android.support.design.widget.AppBarLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/topTableLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                app:tabIndicatorColor="#f00"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="#f00"
+                app:tabTextAppearance="@style/TabLayoutTextStyle"
+                app:tabTextColor="#7f000000" />
+            <android.support.v4.view.ViewPager
+                android:id="@+id/topViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

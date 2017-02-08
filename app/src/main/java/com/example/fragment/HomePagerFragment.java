@@ -4,11 +4,11 @@ import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.adapter.HotProjectAdapter;
@@ -313,6 +313,13 @@ public class HomePagerFragment extends BaseFragment {
     protected View setDifferentView(int status) {
         view = View.inflate(getActivity(), R.layout.fragment_homepage, null);
         ChangeHideManager.changeVisible(view, status);
+        LinearLayout no_network = (LinearLayout) view.findViewById(R.id.no_network);
+        no_network.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onLoad();
+            }
+        });
         return view;
     }
 

@@ -31,11 +31,12 @@
                 />
         </com.zhy.autolayout.AutoLinearLayout>
             <ImageView
+                android:scaleType="fitXY"
                 android:visibility="gone"
                 android:id="@+id/head_animation"
                 android:layout_centerInParent="true"
-                android:layout_width="120px"
-                android:layout_height="120px" />
+                android:layout_width="160px"
+                android:layout_height="100px" />
     </com.zhy.autolayout.AutoRelativeLayout>
 
 </com.zhy.autolayout.AutoRelativeLayout>

@@ -1,6 +1,10 @@
 package com.example.util;
 
 public interface UrlUtils {
+   //圈子
+   String circle_topic_bottom="http://www.meirixue.com/api.php?c=circle&a=getCirclePostList";
+
+   String circle_topic_title="http://www.meirixue.com/api.php?c=circle&a=getCircleNameInfo";
    // 圈子 热门 主体
    String circle_hot_content="http://www.meirixue.com/api.php?c=circle&a=getCirclePostListByTid";
     //圈子-热门接口 get请求

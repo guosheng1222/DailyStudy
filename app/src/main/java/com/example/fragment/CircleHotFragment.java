@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.example.base.BaseData;
 import com.example.base.BaseFragment;
@@ -85,6 +86,13 @@ public class CircleHotFragment extends BaseFragment {
     protected View setDifferentView(int status) {
         view = View.inflate(getActivity(),R.layout.circle_hot_fragment,null);
         ChangeHideManager.changeVisible(view, status);
+        LinearLayout no_network = (LinearLayout) view.findViewById(R.id.no_network);
+        no_network.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onLoad();
+            }
+        });
         return view;
     }
 
