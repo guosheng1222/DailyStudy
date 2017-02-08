@@ -76,9 +76,27 @@ public class CateDetailedActivity extends AppCompatActivity implements View.OnCl
         //展示list数据
         showListData();
 
+        jumpDetailedFace();
 
         //popupwindow课程列表
         couseList();
+
+    }
+
+    private void jumpDetailedFace() {
+
+        class_listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Intent intent = new Intent(CateDetailedActivity.this,HDetailsActivity.class);
+
+                intent.putExtra("url",sortList.get(i).getCid());
+
+                startActivity(intent);
+            }
+        });
+
     }
 
     /**
@@ -432,6 +450,5 @@ public class CateDetailedActivity extends AppCompatActivity implements View.OnCl
             }
         });
     }
-
 
 }
